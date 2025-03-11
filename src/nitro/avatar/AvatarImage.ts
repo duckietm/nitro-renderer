@@ -62,6 +62,7 @@ export class AvatarImage implements IAvatarImage, IAvatarEffectListener
     private _cachedBodyPartsAvatarSet: string = null;
     private _effectManager: EffectAssetDownloadManager;
     private _effectListener: IAvatarEffectListener;
+    public _isdeadSnow: boolean = false;
 
     constructor(k: AvatarStructure, _arg_2: AssetAliasCollection, _arg_3: AvatarFigureContainer, _arg_4: string, _arg_5: EffectAssetDownloadManager, _arg_6: IAvatarEffectListener = null)
     {
@@ -736,6 +737,24 @@ export class AvatarImage implements IAvatarImage, IAvatarEffectListener
                             this._useFullImageCache = true;
                         }
 
+                        if((_local_3 === AvatarAction.SNOWWAR_DIE_BACK) || (_local_3 === AvatarAction.SNOWWAR_DIE_BACK) || (_local_3 === AvatarAction.SNOWWAR_DIE_BACK))
+                        {
+                            if(_local_3 === AvatarAction.SNOWWAR_DIE_BACK)
+                            {
+                                if(this._mainDirection == 0)
+                                {
+                                    this.setDirection(AvatarSetType.HEAD, 4);
+                                }
+                                else
+                                {
+                                    this.setDirection(AvatarSetType.HEAD, 4);
+                                }
+                            }
+
+                            this._useFullImageCache = true;
+                            this._useFullImageCache = true;
+                        }
+                        
                         this.addActionData(_local_3);
                         break;
                 }

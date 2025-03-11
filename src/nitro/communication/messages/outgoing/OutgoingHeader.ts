@@ -251,6 +251,7 @@ export class OutgoingHeader
     public static USER_PROFILE_BY_NAME = 2249;
     public static USER_RESPECT = 2694;
     public static GET_SOUND_SETTINGS = 2388;
+    public static USER_SETTINGS_ALLOW_EMOJI = 1462;
     public static USER_SETTINGS_CAMERA = 1461;
     public static USER_SETTINGS_CHAT_STYLE = 1030;
     public static USER_SETTINGS_INVITES = 1086;
@@ -344,6 +345,7 @@ export class OutgoingHeader
     public static REJECT_QUEST = 2397;
     public static START_CAMPAIGN = 1697;
     public static GET_BONUS_RARE_INFO = 957;
+    public static CLAIM_BONUS_RARE = 958;
     public static CRAFT = 3591;
     public static CRAFT_SECRET = 1251;
     public static GET_CRAFTABLE_PRODUCTS = 633;
@@ -443,7 +445,6 @@ export class OutgoingHeader
     public static POLL_ANSWER = 3505;
     public static POLL_REJECT = 1773;
     public static POLL_START = 109;
-    public static POLL_VOTE_COUNTER = 6200;
     public static DISCONNECT = 2445;
     public static SCR_GET_KICKBACK_INFO = 869;
     public static COMPOST_PLANT = 3835;
@@ -468,4 +469,6 @@ export class OutgoingHeader
     public static RENTABLE_EXTEND_RENT_OR_BUYOUT_STRIP_ITEM = 2115;
     public static RENTABLE_EXTEND_RENT_OR_BUYOUT_FURNI = 1071;
     public static RENTABLE_GET_RENT_OR_BUYOUT_OFFER = 2518;
+    public static WHISPER_GROUP = 1118;
+    public static DELETE_FURNI = 2023;
 }

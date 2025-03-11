@@ -76,6 +76,7 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
     private _geometryUpdateCounter: number;
 
     private _additions: Map<number, IAvatarAddition>;
+    public _isdeadSnow: boolean;
 
     constructor()
     {
@@ -215,7 +216,21 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
 
             objectUpdate = this.updateObject(this.object, geometry, update, true);
 
-            this.processActionsForAvatar(this._avatarImage);
+            if(this._posture != AvatarAction.SNOWWAR_DIE_BACK){
+                this.processActionsForAvatar(this._avatarImage);
+                this._isdeadSnow = false;
+                this._needsUpdate = true;
+
+                this._figure
+            }
+
+            if(this._posture === AvatarAction.SNOWWAR_DIE_BACK){
+                if(!this._isdeadSnow){
+                    this.processActionsForAvatar(this._avatarImage);
+                    this._isdeadSnow = true;
+                }
+            }
+            
 
             if(this._additions)
             {
@@ -510,7 +525,7 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
             headDirection -= ((headDirection % 90) - 45);
         }
 
-        if((direction !== this._angle) || _arg_4)
+        if((direction !== this._angle) || _arg_4 && !this._isdeadSnow)
         {
             update = true;
 
@@ -522,7 +537,7 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
             this._avatarImage.setDirectionAngle(AvatarSetType.FULL, direction);
         }
 
-        if((headDirection !== this._headAngle) || _arg_4)
+        if((headDirection !== this._headAngle) || _arg_4 && !this._isdeadSnow)
         {
             update = true;
 
@@ -887,7 +902,7 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
     {
         if(scale < 48) this._blink = false;
 
-        if((this._posture === 'sit') || (this._posture === 'lay'))
+        if((this._posture === 'sit') || (this._posture === 'lay') || (this._posture === 'swdieback'))
         {
             this._postureOffset = (scale / 2);
         }
@@ -899,7 +914,7 @@ export class AvatarVisualization extends RoomObjectSpriteVisualization implement
         this._layInside = false;
         this._isLaying = false;
 
-        if(this._posture === 'lay')
+        if(this._posture === 'lay' || this._posture === 'swdieback')
         {
             this._isLaying = true;
 

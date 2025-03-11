@@ -9,3 +9,4 @@ export * from './UserFigureComposer';
 export * from './UserMottoComposer';
 export * from './UserProfileComposer';
 export * from './UserRelationshipsComposer';
+export * from './WhisperGroupComposer';
